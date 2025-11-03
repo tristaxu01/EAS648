@@ -16,6 +16,13 @@ However, open data science also introduces unforeseen risks and challenges. Soci
 
 ## Boulder Analysis
 ![Caption](img/image1.jpg "Landscape of Colorado")
+
+```{r}
+library(sf)
+library(ggplot2)
+library(tidyverse)
+```
+
 ```{r cars}
 boulder <- st_read("BoulderSocialMedia/BoulderSocialMedia.shp")
 ```
@@ -30,7 +37,6 @@ ggplot() +
   labs(
     title = "Elevation map of Colorado"
   ) 
-  theme_bw()
 ```
 #### Distance comparison by Location type
 
