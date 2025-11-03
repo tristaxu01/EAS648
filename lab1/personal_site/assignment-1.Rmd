@@ -1,0 +1,37 @@
+---
+title: "Assignment 1: Coding Showcase"
+author: "Your Name"
+output: html_document
+---
+
+```{r setup_assignment, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+```
+
+# Overview
+This is a short analysis demonstrating basic skills: plotting and fitting a simple model.
+
+# Data & methods
+We use the built-in `mpg` dataset from **ggplot2**.
+
+```{r}
+library(ggplot2)
+summary(mpg)
+```
+
+# Visualization
+```{r}
+p <- ggplot(mpg, aes(displ, hwy, color = class)) +
+  geom_point(alpha = 0.7) +
+  geom_smooth(method = "loess", se = FALSE)
+p
+```
+
+# Small analysis
+```{r}
+m <- lm(hwy ~ displ + cyl, data = mpg)
+summary(m)
+```
+
+# Reflection
+Write 3–5 sentences on what you learned and any caveats.
