@@ -15,7 +15,7 @@ However, open data science also introduces unforeseen risks and challenges. Soci
 
 
 ## Boulder Analysis
-![Caption](img/image1.jpg "Landscape of Colorado")
+![Landscape of Colorado](img/image1.jpg "Landscape of Colorado")
 
 ```{r}
 library(sf)
@@ -38,8 +38,9 @@ ggplot() +
     title = "Elevation map of Colorado"
   ) 
 ```
-#### Distance comparison by Location type
 
+
+#### Distance comparison by Location type
 ```{r}
 boulder_long <- boulder %>%
   pivot_longer(cols = c(Climb_dist, TrailH_Dis, NatMrk_Dis),
@@ -59,6 +60,7 @@ ggplot(boulder_long, aes(x = DB, y = Distance, fill = DB)) +
 
 
 ```
+
 Base on the box plot, pictures from **Panoramio (Pano)** are taken from the closest to attractions and it's consistently shortest distances to climbing areas and natural landmarks. **OSMP_lands's** pictures have largest distance spread (tallest boxes) across all three distance measures, generally furthest from key features, especially trailheads.
 
 
