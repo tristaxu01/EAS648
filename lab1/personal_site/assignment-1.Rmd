@@ -7,15 +7,13 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-
-## Questions
-As we enter the era of big data, both opportunities and challenges are rapidly emerging. The abundance of data brings significant advantages, but also new risks as we become increasingly overwhelmed by its sheer volume. Open data science generally refers to making data publicly available so that anyone can access various data sources and use them for research or other beneficial purposes. When creative and intelligent individuals or groups collaboratively work on shared datasets, it fosters innovation, improvement, and a healthy atmosphere of competition. The availability of large, high-quality datasets also stimulates the growth of computational social science and opens new research opportunities. For instance, election data from 2008–2012 has provided valuable resources for political and economic research.
-
-However, open data science also introduces unforeseen risks and challenges. Society remains largely unprepared for the pace of data expansion, leading to decisions that rely heavily on data while neglecting careful human judgment. This overreliance can result in overlooking essential cultural and social factors that should inform responsible data use.
-
-
-## Boulder Analysis
+# Overview
+This is a short analysis demonstrating basic skills: plotting and fitting a simple model on Boulder data
 ![Landscape of Colorado](img/image1.jpg "Landscape of Colorado")
+
+# Data & methods
+We use the `BoulderSocialMedia` dataset from **ggplot2**.
+
 
 ```{r}
 library(sf)
@@ -23,21 +21,12 @@ library(ggplot2)
 library(tidyverse)
 ```
 
+#### Lodaing Data
+
 ```{r cars}
 boulder <- st_read("BoulderSocialMedia/BoulderSocialMedia.shp")
 ```
-#### Elevation Visulization
-The following map shows the elevation of the state of Colorado. The pink or lighter colors indicate higher elevations. Based on the map, we can see that **Colorado’s higher-elevation areas are mostly in the southwest**, while the northern and eastern regions are at lower elevations.
-```{r}
-boulder = st_transform(boulder, 26753) 
-ggplot() +
-    geom_sf(data =boulder, aes(color=PT_Elev),
-    fill = NA, alpha = .2) +
-  scale_colour_gradientn(colours = terrain.colors(10)) +
-  labs(
-    title = "Elevation map of Colorado"
-  ) 
-```
+
 
 
 #### Distance comparison by Location type
@@ -63,5 +52,23 @@ ggplot(boulder_long, aes(x = DB, y = Distance, fill = DB)) +
 
 Base on the box plot, pictures from **Panoramio (Pano)** are taken from the closest to attractions and it's consistently shortest distances to climbing areas and natural landmarks. **OSMP_lands's** pictures have largest distance spread (tallest boxes) across all three distance measures, generally furthest from key features, especially trailheads.
 
+# Visualization
 
+#### Elevation Visulization
+The following map shows the elevation of the state of Colorado. The pink or lighter colors indicate higher elevations. Based on the map, we can see that **Colorado’s higher-elevation areas are mostly in the southwest**, while the northern and eastern regions are at lower elevations.
+```{r}
+boulder = st_transform(boulder, 26753) 
+ggplot() +
+    geom_sf(data =boulder, aes(color=PT_Elev),
+    fill = NA, alpha = .2) +
+  scale_colour_gradientn(colours = terrain.colors(10)) +
+  labs(
+    title = "Elevation map of Colorado"
+  ) 
+```
 
+# Reflection
+
+As we enter the era of big data, both opportunities and challenges are rapidly emerging. The abundance of data brings significant advantages, but also new risks as we become increasingly overwhelmed by its sheer volume. Open data science generally refers to making data publicly available so that anyone can access various data sources and use them for research or other beneficial purposes. When creative and intelligent individuals or groups collaboratively work on shared datasets, it fosters innovation, improvement, and a healthy atmosphere of competition. The availability of large, high-quality datasets also stimulates the growth of computational social science and opens new research opportunities. For instance, election data from 2008–2012 has provided valuable resources for political and economic research.
+
+However, open data science also introduces unforeseen risks and challenges. Society remains largely unprepared for the pace of data expansion, leading to decisions that rely heavily on data while neglecting careful human judgment. This overreliance can result in overlooking essential cultural and social factors that should inform responsible data use.
