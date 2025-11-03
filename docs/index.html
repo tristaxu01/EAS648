@@ -9,10 +9,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Wenqian(Trista) Xu" />
 
 
-<title>Assignment 1: Coding Showcase</title>
+<title>About Wenqian(Trista) Xu</title>
 
 <script src="site_libs/header-attrs-2.21/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -341,103 +340,28 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Assignment 1: Coding Showcase</h1>
-<h4 class="author">Wenqian(Trista) Xu</h4>
+<h1 class="title toc-ignore">About Wenqian(Trista) Xu</h1>
 
 </div>
 
 
-<div id="questions" class="section level2">
-<h2>Questions</h2>
-<p>As we enter the era of big data, both opportunities and challenges
-are rapidly emerging. The abundance of data brings significant
-advantages, but also new risks as we become increasingly overwhelmed by
-its sheer volume. Open data science generally refers to making data
-publicly available so that anyone can access various data sources and
-use them for research or other beneficial purposes. When creative and
-intelligent individuals or groups collaboratively work on shared
-datasets, it fosters innovation, improvement, and a healthy atmosphere
-of competition. The availability of large, high-quality datasets also
-stimulates the growth of computational social science and opens new
-research opportunities. For instance, election data from 2008–2012 has
-provided valuable resources for political and economic research.</p>
-<p>However, open data science also introduces unforeseen risks and
-challenges. Society remains largely unprepared for the pace of data
-expansion, leading to decisions that rely heavily on data while
-neglecting careful human judgment. This overreliance can result in
-overlooking essential cultural and social factors that should inform
-responsible data use.</p>
-</div>
-<div id="boulder-analysis" class="section level2">
-<h2>Boulder Analysis</h2>
-<div class="float">
-<img src="img/image1.jpg" title="Landscape of Colorado"
-alt="Landscape of Colorado" />
-<div class="figcaption">Landscape of Colorado</div>
-</div>
-<pre class="r"><code>library(sf)</code></pre>
-<pre><code>## Linking to GEOS 3.14.1, GDAL 3.11.4, PROJ 9.7.0; sf_use_s2() is TRUE</code></pre>
-<pre class="r"><code>library(ggplot2)
-library(tidyverse)</code></pre>
-<pre><code>## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-## ✔ dplyr     1.1.2     ✔ readr     2.1.5
-## ✔ forcats   1.0.0     ✔ stringr   1.5.0
-## ✔ lubridate 1.9.2     ✔ tibble    3.2.1
-## ✔ purrr     1.1.0     ✔ tidyr     1.3.0</code></pre>
-<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-## ✖ dplyr::filter() masks stats::filter()
-## ✖ dplyr::lag()    masks stats::lag()
-## ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-<pre class="r"><code>boulder &lt;- st_read(&quot;BoulderSocialMedia/BoulderSocialMedia.shp&quot;)</code></pre>
-<pre><code>## Reading layer `BoulderSocialMedia&#39; from data source 
-##   `/Users/tristaxu/Desktop/EAS_648/EAS648_proj/Lab1/personal_site/BoulderSocialMedia/BoulderSocialMedia.shp&#39; 
-##   using driver `ESRI Shapefile&#39;
-## Simple feature collection with 55519 features and 12 fields
-## Geometry type: POINT
-## Dimension:     XY
-## Bounding box:  xmin: -788775 ymin: 1917813 xmax: -780555 ymax: 1930053
-## Projected CRS: NAD_1983_Albers</code></pre>
-<div id="elevation-visulization" class="section level4">
-<h4>Elevation Visulization</h4>
-<p>The following map shows the elevation of the state of Colorado. The
-pink or lighter colors indicate higher elevations. Based on the map, we
-can see that <strong>Colorado’s higher-elevation areas are mostly in the
-southwest</strong>, while the northern and eastern regions are at lower
-elevations.</p>
-<pre class="r"><code>boulder = st_transform(boulder, 26753) 
-ggplot() +
-    geom_sf(data =boulder, aes(color=PT_Elev),
-    fill = NA, alpha = .2) +
-  scale_colour_gradientn(colours = terrain.colors(10)) +
-  labs(
-    title = &quot;Elevation map of Colorado&quot;
-  ) </code></pre>
-<p><img src="assignment-1_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
-</div>
-<div id="distance-comparison-by-location-type" class="section level4">
-<h4>Distance comparison by Location type</h4>
-<pre class="r"><code>boulder_long &lt;- boulder %&gt;%
-  pivot_longer(cols = c(Climb_dist, TrailH_Dis, NatMrk_Dis),
-               names_to = &quot;Distance_Type&quot;,
-               values_to = &quot;Distance&quot;)
-
-ggplot(boulder_long, aes(x = DB, y = Distance, fill = DB)) +
-  geom_boxplot() +
-  facet_wrap(~ Distance_Type, scales = &quot;free_y&quot;) +
-  labs(
-    title = &quot;Comparison of Distance to Key Features by Location Type&quot;,
-    x = &quot;DB&quot;,
-    y = &quot;Distance(m) &quot;
-  ) +
-  theme_minimal() +
-  theme(legend.position = &quot;none&quot;)</code></pre>
-<p><img src="assignment-1_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
-<p>Base on the box plot, pictures from <strong>Panoramio (Pano)</strong>
-are taken from the closest to attractions and it’s consistently shortest
-distances to climbing areas and natural landmarks.
-<strong>OSMP_lands’s</strong> pictures have largest distance spread
-(tallest boxes) across all three distance measures, generally furthest
-from key features, especially trailheads.</p>
+<div id="hello" class="section level1">
+<h1>Hello!</h1>
+<p>Welcome to my personal site. This homepage is written in <strong>R
+Markdown</strong> and will be published on <strong>GitHub
+Pages</strong>.</p>
+<ul>
+<li>I am a 2nd year Data Science Master student at Umich</li>
+<li>I am interested in: <em>data science, cognitive science, and
+sustainability</em>.</li>
+<li>This site will grow as I add more <code>.Rmd</code> analyses under
+<strong>Analyses</strong>.</li>
+</ul>
+<div id="a-photo-of-me-replace-with-your-own" class="section level2">
+<h2>A photo of me (replace with your own)</h2>
+<p>Place your images in the <code>img/</code> folder and reference them
+like this:</p>
+<p><img src="img/profile.JPG" width="300px" /></p>
 </div>
 </div>
 
