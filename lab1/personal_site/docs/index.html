@@ -371,8 +371,9 @@ responsible data use.</p>
 <div id="boulder-analysis" class="section level2">
 <h2>Boulder Analysis</h2>
 <div class="float">
-<img src="img/image1.jpg" title="Landscape of Colorado" alt="Caption" />
-<div class="figcaption">Caption</div>
+<img src="img/image1.jpg" title="Landscape of Colorado"
+alt="Landscape of Colorado" />
+<div class="figcaption">Landscape of Colorado</div>
 </div>
 <pre class="r"><code>library(sf)</code></pre>
 <pre><code>## Linking to GEOS 3.14.1, GDAL 3.11.4, PROJ 9.7.0; sf_use_s2() is TRUE</code></pre>
@@ -411,8 +412,10 @@ ggplot() +
   labs(
     title = &quot;Elevation map of Colorado&quot;
   ) </code></pre>
-<p><img src="assignment-1_files/figure-html/unnamed-chunk-2-1.png" width="672" />
-#### Distance comparison by Location type</p>
+<p><img src="assignment-1_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+</div>
+<div id="distance-comparison-by-location-type" class="section level4">
+<h4>Distance comparison by Location type</h4>
 <pre class="r"><code>boulder_long &lt;- boulder %&gt;%
   pivot_longer(cols = c(Climb_dist, TrailH_Dis, NatMrk_Dis),
                names_to = &quot;Distance_Type&quot;,
@@ -428,8 +431,8 @@ ggplot(boulder_long, aes(x = DB, y = Distance, fill = DB)) +
   ) +
   theme_minimal() +
   theme(legend.position = &quot;none&quot;)</code></pre>
-<p><img src="assignment-1_files/figure-html/unnamed-chunk-3-1.png" width="672" />
-Base on the box plot, pictures from <strong>Panoramio (Pano)</strong>
+<p><img src="assignment-1_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>Base on the box plot, pictures from <strong>Panoramio (Pano)</strong>
 are taken from the closest to attractions and it’s consistently shortest
 distances to climbing areas and natural landmarks.
 <strong>OSMP_lands’s</strong> pictures have largest distance spread
